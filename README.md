@@ -12,10 +12,10 @@ The repository has a src folder that includes App.js, dataset.json and other com
 
 **Data.js** - To load the json data and adding color as new key assigning a randomcolor to each item type.
 
-**Arrange.js** - The loaded json data is rearranged such that no two similar products are adjacent to each other.
+**Arrange.js** - The loaded json data is rearranged such that no two similar products are adjacent to each other and logic for placing Corei4 and Corei5 products in grids 1 abd 2.
 
-**Blocks.js** - This has functions rendering for Tape-in DB view, I/Os and Misc Blocks.
+**Blocks.js** - Has functions for rendering Tape-in DB view, I/Os and Misc Blocks.
 
 **Tablecomponents.js** - This has components for custom table cells i.e CustomTableCell for grid and RU columns,  CustomProdTableCell for product columns, VerticalColumns for headers, CustomNewTableCell for diode and unmask columns.
 
-**Functions.js** - Has function for styling grid columns.
+**Functions.js** - For styling grid columns.
