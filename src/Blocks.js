@@ -1,5 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
+import { Box } from '@mui/material';
+
 // Attaching Tape block at the top of table 
 export const TapeBlock = () => {
   return (
@@ -47,16 +49,19 @@ export const IOsBlock = () => {
 // Attaching MISC block at the bottom of table 
 export const MiscBlock = () => {
   return (
-      <Typography variant="h8" sx={{
-        width: '628px',
-        height: '0',
+    <Box
+      sx={{
+        width: '628px', 
+        height: '0', 
         padding: '0',
         textAlign: 'center',
         marginLeft: '332px',
         borderLeft: '1px solid black',
         borderRight: '1px solid black',
-        borderBottom: '1px solid black',
-      }}>MISC Block</Typography>
-  
+        borderBottom: '1px solid black', 
+      }}
+    >
+      <Typography variant="h8">MISC Block</Typography>
+    </Box>
   );
 };
