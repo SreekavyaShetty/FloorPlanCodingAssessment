@@ -2,75 +2,7 @@ import React, { useState, useEffect, useRef }  from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Button } from '@mui/material';
 import { xdata} from './Arrange';
 import { gridStyle} from './Functions';
-
-const VerticalText = ({ children }) => (
-  <Typography
-    variant="body1"
-    align="center"
-    sx={{
-      writingMode: 'vertical-lr', // Vertical text, facing right
-      whiteSpace: 'nowrap', // Avoid wrapping
-      fontSize: '0.5rem',
-      fontWeight: 'bold',
-      
-    }}
-  >
-    {children}
-  </Typography>
-);
-
-const VerticalColumn = ({ children }) => (
-  <TableCell align="center" sx={{ padding: '0',height: '0',borderLeft: 1, borderTop: 1, borderRight: 1, border:1, color: 'white', borderColor: 'black', fontWeight: 'bold'}}>
-    <VerticalText>{children}</VerticalText>
-
-  </TableCell>
-);
-
-const CustomTableCell = (props) => (
-  <TableCell align="center" {...props} sx={{ padding: '0',height: '0', fontSize: '10px', border:1,fontSize: '0.6rem', borderColor: 'black', fontWeight: 'bold'}}/>
-  
-);
-
-const CustomNewTableCell = ({ onClick, children, isActive, color }) => (
-  <TableCell 
-    align="center" 
-    onClick={onClick} 
-    sx={{ 
-      border: 1, 
-      padding: '0',
-      height: '0',
-      fontSize: '0.6rem',
-      backgroundColor: isActive ? color : null,  // Color change on active state
-    }}
-  >
-    {children}
-  </TableCell>
-);
-
-const CustomProdTableCell = ({ children, rcolor, ...props }) => (
-  
-  <TableCell
-    align="center"
-    {...props}
-    sx={{
-      padding: '0',
-      height: '0',
-      borderLeft: 1,
-      borderTop: 1,
-      borderRight: 1,
-      fontSize: '0.6rem',
-      fontWeight: 'bold',
-      border: 1,
-      borderColor: 'black',
-      width: '300px',
-      backgroundColor: rcolor || 'inherit', // Use productData.color as background color
-      // color: textColor,
-    }}
-   
-  >
-    {children}
-  </TableCell>
-);
+import { VerticalColumn, VerticalText, CustomTableCell, CustomNewTableCell, CustomProdTableCell } from './Tablecomponents';
 
 
 
