@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef }  from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Button } from '@mui/material';
 import { xdata} from './Arrange';
+import { gridStyle} from './Functions';
 
 const VerticalText = ({ children }) => (
   <Typography
@@ -137,15 +138,6 @@ const App = () => {
     setActiveUnmaskProduct(activeUnmaskProduct === product ? null : product);
   };
   
-  // To assign background and text colors to grid columns
-  const getGridStyle = (gValue) => {
-    switch (gValue) {
-      case '1': return { backgroundColor: 'black', color: 'white' };
-      case '2': return { backgroundColor: '#4d9900', color: 'white' };
-      case '3': return { backgroundColor: '#336600', color: 'white' };
-      case '4': return { backgroundColor: '#1aa3ff', color: 'black' };
-    }
-  };
 
   return (
     <Box>
@@ -180,7 +172,7 @@ const App = () => {
               )}
               <TableRow key={row.id}>
                 {(index === 0 || index === 20) && (
-                  <CustomTableCell rowSpan={20} style={getGridStyle(row.grid)}><VerticalText>{row.grid}</VerticalText></CustomTableCell>
+                  <CustomTableCell rowSpan={20} style={gridStyle(row.grid)}><VerticalText>{row.grid}</VerticalText></CustomTableCell>
                 )}
                 
                 <CustomNewTableCell isActive={row.diode}
@@ -203,7 +195,7 @@ const App = () => {
                 <CustomNewTableCell isActive={row.diode2}
                   onClick={() => toggleDiode(row.ru2)} color="blue"></CustomNewTableCell>
                 {(index === 0 || index === 20) && (
-                  <CustomTableCell rowSpan={20} style={getGridStyle(row.grid2)}><VerticalText>{row.grid2}</VerticalText></CustomTableCell>
+                  <CustomTableCell rowSpan={20} style={gridStyle(row.grid2)}><VerticalText>{row.grid2}</VerticalText></CustomTableCell>
                 )}
               </TableRow>
             </>
