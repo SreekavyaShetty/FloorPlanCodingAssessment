@@ -137,7 +137,7 @@ const App = () => {
       </Table>
     </TableContainer>
     {/* Attaching box for I/Os to the right of table */}
-    < I0sBlock />
+    < IOsBlock />
 
     {/* Attaching box for MISC block at the bottom of table */}
     < MiscBlock />
