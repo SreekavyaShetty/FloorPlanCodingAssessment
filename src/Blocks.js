@@ -26,7 +26,7 @@ export const TapeBlock = () => {
     </Typography>
   );
 };
-
+// Attaching I0 block to the right of the table 
 export const IOsBlock = () => {
   return (
         <Typography variant="h8" sx={{
