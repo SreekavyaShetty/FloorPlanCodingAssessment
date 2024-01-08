@@ -6,9 +6,8 @@ import { gridStyle} from './Functions';
 import { VerticalColumn, VerticalText, CustomTableCell, CustomNewTableCell, CustomProdTableCell } from './Tablecomponents';
 
 
-
 const App = () => {
-  // Create an array for rows
+  // Creating an array for rows
   const initialRows = new Array(40).fill(null).map((_, index) => ({
     id: index,
     grid: index < 20 ? '1' : '3',
@@ -25,20 +24,20 @@ const App = () => {
   }));
 
   const [rows, setRows] = useState(initialRows);
-
+// xdata to data array
   const data = React.useMemo(()=> xdata, []); 
 
  // console.log(data[0]);
   
   useEffect(() => {
-    // Assuming data is an array of product objects, and each product object has at least a 'product' key
+    
     const updatedRows = rows.map((row, index) => {
       const productData = data[index % data.length]; 
-      const productData2 = data[(index+40) % data.length]; // This will cycle through the products for each row
+      const productData2 = data[(index+40) % data.length];
       return {
         ...row,
-        prod: productData.product, // Assign product name to 'prod' (Product1) column
-        prod2: productData2.product, // Assign product name to 'prod2' (Product2) column for rows 21-40
+        prod: productData.product, // Assigning product name to 'prod' (Product1) column and product2 columns
+        prod2: productData2.product, 
         prodColor: productData.rcolor,
         prodColor2: productData2.rcolor
       };
@@ -104,24 +103,17 @@ const App = () => {
                 {(index === 0 || index === 20) && (
                   <CustomTableCell rowSpan={20} style={gridStyle(row.grid)}><VerticalText>{row.grid}</VerticalText></CustomTableCell>
                 )}
-                
                 <CustomNewTableCell isActive={row.diode}
-                  onClick={() => toggleDiode(row.ru)} color="blue"
-                >  </CustomNewTableCell>
+                  onClick={() => toggleDiode(row.ru)} color="blue">  </CustomNewTableCell>
                 <CustomNewTableCell isActive={activeUnmaskProduct === row.prod}
-                onClick={() => toggleUnmask(row.prod)} color="yellow"
-                >  </CustomNewTableCell>
+                onClick={() => toggleUnmask(row.prod)} color="yellow">  </CustomNewTableCell>
                 <CustomTableCell>{row.ru}</CustomTableCell>
-                
                 <CustomProdTableCell rcolor={row.prodColor}>{row.prod}</CustomProdTableCell>
                 <CustomTableCell style={{ width: '13px' }}>{row.place} </CustomTableCell>
-            
                 <CustomProdTableCell rcolor={row.prodColor2}>{row.prod2}</CustomProdTableCell>
-                
                 <CustomTableCell>{row.ru2}</CustomTableCell>
                 <CustomNewTableCell isActive={activeUnmaskProduct === row.prod2}
-                onClick={() => toggleUnmask(row.prod2)} color="yellow"
-                >  </CustomNewTableCell>
+                onClick={() => toggleUnmask(row.prod2)} color="yellow">  </CustomNewTableCell>
                 <CustomNewTableCell isActive={row.diode2}
                   onClick={() => toggleDiode(row.ru2)} color="blue"></CustomNewTableCell>
                 {(index === 0 || index === 20) && (
@@ -137,9 +129,6 @@ const App = () => {
     < IOsBlock />
     < MiscBlock />
     </Box>
-    
-    
-    
   );
 };
 
