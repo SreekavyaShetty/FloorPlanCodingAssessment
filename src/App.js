@@ -112,29 +112,28 @@ const App = () => {
     setRows(updatedRows);
 }, []);
 
-  const toggleDiode = (ru) => {
-    setRows(rows.map(row => ({
-      ...row, 
-      diode: row.ru === ru ? !row.diode : false, 
-      diode2: false
-    })));
-  };
+  // changing only particular row cells of diode and diode2 columns when clicked and reset all other.
 
-  const toggleDiode2 = (ru2) => {
-    setRows(rows.map(row => ({
-      ...row, 
-      diode2: row.ru2 === ru2 ? !row.diode2 : false,  
-      diode: false
-    })));
+  const toggleDiode = (x) => {
+    setRows(rows.map(row => (
+      x >= 0 && x < 40
+        ? {
+            ...row,
+            diode: row.ru === x ? !row.diode : false,
+            diode2: false
+          }
+        : {
+            ...row,
+            diode2: row.ru2 === x ? !row.diode2 : false,
+            diode: false
+          }
+    )));
   };
-
+  
+  // unmask columns to select all cells having same product value.
   const [activeUnmaskProduct, setActiveUnmaskProduct] = useState(null);
 
   const toggleUnmask = (product) => {
-    setActiveUnmaskProduct(activeUnmaskProduct === product ? null : product);
-  };
-  
-  const toggleUnmask2 = (product) => {
     setActiveUnmaskProduct(activeUnmaskProduct === product ? null : product);
   };
   
@@ -199,10 +198,10 @@ const App = () => {
                 
                 <CustomTableCell>{row.ru2}</CustomTableCell>
                 <CustomNewTableCell isActive={activeUnmaskProduct === row.prod2}
-                onClick={() => toggleUnmask2(row.prod2)} color="yellow"
+                onClick={() => toggleUnmask(row.prod2)} color="yellow"
                 >  </CustomNewTableCell>
                 <CustomNewTableCell isActive={row.diode2}
-                  onClick={() => toggleDiode2(row.ru2)} color="blue"></CustomNewTableCell>
+                  onClick={() => toggleDiode(row.ru2)} color="blue"></CustomNewTableCell>
                 {(index === 0 || index === 20) && (
                   <CustomTableCell rowSpan={20} style={getGridStyle(row.grid2)}><VerticalText>{row.grid2}</VerticalText></CustomTableCell>
                 )}
