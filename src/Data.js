@@ -1,13 +1,17 @@
 import jsonData from './dataset.json';
 
 
+
 // to assign some random color to each product
 const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
+    // Generate random values for R, G, and B in the light color range
+    const r = Math.floor(Math.random() * 128) + 100; 
+    const g = Math.floor(Math.random() * 128) + 100; 
+    const b = Math.floor(Math.random() * 128) + 100; 
+  
+    // Convert RGB values to hexadecimal format
+    const color = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+  
     return color;
   };
   
