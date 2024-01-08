@@ -53,7 +53,7 @@ export const MiscBlock = () => {
     <div style={{ display: 'flex', justifyContent: 'center', padding: '0' }}>
     <Box
       sx={{
-        width: '628px', 
+        width: '615px', 
         height: '0', 
         padding: '0',
         textAlign: 'center',
