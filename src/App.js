@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef }  from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Button } from '@mui/material';
+import { Table, TableBody, TableCell, TableHead, TableRow, Typography, Box } from '@mui/material';
 import { xdata} from './Arrange';
 import { TapeBlock, IOsBlock, MiscBlock } from './Blocks';
 import { gridStyle} from './Functions';
@@ -74,7 +74,7 @@ const App = () => {
 
   return (
     <Box>
-    <TableContainer >
+    <div style={{ overflowX: 'auto' }}>
       < TapeBlock />
       <Table aria-label="custom table" align = "center" sx={{ width: 'auto' }}> 
         <TableHead sx={{ backgroundColor: '#006699', color: 'white' }}>
@@ -132,27 +132,10 @@ const App = () => {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
-    {/* Attaching box for I/Os to the right of table */}
+    </div>
+    
     < IOsBlock />
-
-    {/* Attaching box for MISC block at the bottom of table */}
-    <Box
-        sx={{
-
-          width: '628px', 
-          height: '0', 
-          padding: '0',
-          textAlign: 'center',
-          marginLeft: '332px',
-          borderLeft: '1px solid black',
-          borderRight: '1px solid black',
-          borderBottom: '1px solid black', 
-
-        }}
-      >
-        <Typography variant="h8">MISC Block</Typography>
-      </Box>
+    < MiscBlock />
     </Box>
     
     
