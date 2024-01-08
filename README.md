@@ -1,6 +1,6 @@
 ## Floor Plan Coding Assessment
 
-This is a React Frontend Application. Used React JS framework and material UI library to develop the application.
+This is a React Frontend Application. Used React JS and material UI library to develop the application.
 
 Deployed the application on vercel.
 
