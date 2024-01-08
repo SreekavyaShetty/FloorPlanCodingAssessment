@@ -150,7 +150,7 @@ const App = () => {
 
   return (
     <Box>
-    <TableContainer component={Paper}>
+    <TableContainer >
       <Typography variant="h6" align="center" style={{ display: 'flex', alignItems: 'center', 
     justifyContent: 'center', marginLeft: '279.5px', marginTop:'10px',height: '20px',width: `719px`, fontSize: '10px', borderLeft: '1px solid black', color: 'white',borderColor: 'black',borderTop: '1px solid black', borderRight: '1px solid black', borderBottom: '0', fontWeight: 'bold',backgroundColor: '#006699',}}>
         TAPE-IN DB VIEW
@@ -181,7 +181,7 @@ const App = () => {
               )}
               <TableRow key={row.id}>
                 {(index === 0 || index === 20) && (
-                  <CustomTableCell rowSpan={20} style={getGridStyle(row.grid)}>{row.grid}</CustomTableCell>
+                  <CustomTableCell rowSpan={20} style={getGridStyle(row.grid)}><VerticalText>{row.grid}</VerticalText></CustomTableCell>
                 )}
                 
                 <CustomNewTableCell isActive={row.diode}
@@ -204,7 +204,7 @@ const App = () => {
                 <CustomNewTableCell isActive={row.diode2}
                   onClick={() => toggleDiode2(row.ru2)} color="blue"></CustomNewTableCell>
                 {(index === 0 || index === 20) && (
-                  <CustomTableCell rowSpan={20} style={getGridStyle(row.grid2)}>{row.grid2}</CustomTableCell>
+                  <CustomTableCell rowSpan={20} style={getGridStyle(row.grid2)}><VerticalText>{row.grid2}</VerticalText></CustomTableCell>
                 )}
               </TableRow>
             </>
