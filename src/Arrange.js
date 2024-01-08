@@ -18,7 +18,7 @@ const rearrangeData = (data) => {
         }
     });
 
-    // Helper function to find and remove the next suitable item
+    // function to find and remove the next suitable item
     const findNextItem = (items, lastItemName) => {
         for (let i = 0; i < items.length; i++) {
             if (items[i].product !== lastItemName) {
@@ -28,17 +28,25 @@ const rearrangeData = (data) => {
         return null;
     };
 
-    // Place Corei4 and Corei5 items in specified ranges
-    const filli4i5items = () => {
-        for (let i = 0; i < 20; i++) {
+    // filling Corei4 and Corei5 items in specified grids 1 and 2
+    const filli4i5 = () => {
+        let lastItem = {};
+    
+        const placeItem = (index) => {
             if (i4i5items.length > 0) {
-                rearranged[i] = i4i5items.shift();
+                const nextItem = findNextItem(i4i5items, lastItem.product);
+                if (nextItem) {
+                    rearranged[index] = nextItem;
+                    lastItem = nextItem;
+                }
             }
+        };
+    
+        for (let i = 0; i < 20; i++) {
+            placeItem(i);
         }
         for (let i = 40; i < 60; i++) {
-            if (i4i5items.length > 0) {
-                rearranged[i] = i4i5items.shift();
-            }
+            placeItem(i);
         }
     };
 
@@ -57,7 +65,7 @@ const rearrangeData = (data) => {
         });
     };
 
-    filli4i5items();
+    filli4i5();
     fillOther();
 
     return rearranged;
