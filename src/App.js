@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef }  from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Button } from '@mui/material';
 import { xdata} from './Arrange';
+import { IOsBlock, MiscBlock } from './Blocks';
 import { gridStyle} from './Functions';
 import { VerticalColumn, VerticalText, CustomTableCell, CustomNewTableCell, CustomProdTableCell } from './Tablecomponents';
 
@@ -136,41 +137,10 @@ const App = () => {
       </Table>
     </TableContainer>
     {/* Attaching box for I/Os to the right of table */}
-    <Box
-        sx={{
-          
-          width: '30px', 
-          height: '602px',
-          position: 'absolute',
-          right: '220px',
-          top: '65px',
-          textAlign: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          border: 1,
-        }}
-      >
-        <Typography variant="h8">I/Os</Typography>
-      </Box>
+    < I0sBlock />
 
-      {/* Attaching box for MISC block at the bottom of table */}
-      <Box
-        sx={{
-          
-          width: '628px', 
-          height: '0', 
-          padding: '0',
-          textAlign: 'center',
-          marginLeft: '332px',
-          borderLeft: '1px solid black',
-          borderRight: '1px solid black',
-          borderBottom: '1px solid black', 
-          
-        }}
-      >
-        <Typography variant="h8">MISC Block</Typography>
-      </Box>
+    {/* Attaching box for MISC block at the bottom of table */}
+    < MiscBlock />
     </Box>
     
     
