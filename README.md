@@ -12,9 +12,8 @@ The repository has a src folder that includes App.js, dataset.json and other req
 
 **App.js** - Includes functions from all component files and code for Table structure and declartion for rows, columns, headers and body of the table. Also includes functions toggelDiode and toggleUnmask for changing the color of cells in diode(to blue) and unmask(all similar product names cells to yellow) columns when clicked.
 
-**Data.js** - To load the json data and adding color as new key assigning a randomcolor to each item type.
 
-**Arrange.js** - The loaded json data is rearranged such that no two similar products are adjacent to each other in the table and logic for placing Corei4 and Corei5 products in grids 1 and 2.
+**Arrange.js** - load the json data and adding color as new key assigning a randomcolor to each item type. The loaded json data is rearranged such that no two similar products are adjacent to each other in the table and logic for placing Corei4 and Corei5 products in grids 1 and 2.
 
 **Blocks.js** - Has functions for rendering Tape-in DB view, I/Os and Misc Blocks.
 
