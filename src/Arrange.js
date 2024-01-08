@@ -1,26 +1,47 @@
-import processData from './Data';
+import jsonData from './dataset.json';
 
-const data = processData();
+// Function to get a random light color
+const getRandomColor = () => {
+    // Generate random values for R, G, and B in the light color range
+    const r = Math.floor(Math.random() * 128) + 100; 
+    const g = Math.floor(Math.random() * 128) + 100; 
+    const b = Math.floor(Math.random() * 128) + 100; 
+  
+    
+    const color = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+  
+    return color;
+  };
+
+// Add random color to each product
+const dataWithColor = jsonData.map(item => ({
+    ...item,
+    rcolor: getRandomColor(),
+}));
 
 // modifying the final process data such that no two similar products are adjacent.
 const rearrangeData = (data) => {
     let i4i5items = [];
     let other = [];
-    let rearranged = new Array(data.length).fill(null);
     let lastItem = {};
 
     // seperating i4 and i5 products items from all other
     data.forEach(item => {
+        for (let i = 0; i < item.repeat; i++) {
         if (item.product === 'Core i4' || item.product === 'Core i5') {
             i4i5items.push(item);
         } else {
             other.push(item);
         }
+    }
     });
+    let l = i4i5items.length + other.length
 
-    // function to find and remove the next suitable item
+    let rearranged = new Array(l).fill(null);
+
+    // Helper function to find and remove the next suitable item
     const findNextItem = (items, lastItemName) => {
-        for (let i = 0; i < items.length; i++) {
+        for (let i = 0; i < l; i++) {
             if (items[i].product !== lastItemName) {
                 return items.splice(i, 1)[0]; // Remove and return the item
             }
@@ -28,8 +49,8 @@ const rearrangeData = (data) => {
         return null;
     };
 
-    // filling Corei4 and Corei5 items in specified grids 1 and 2
-    const filli4i5 = () => {
+
+    const filli4i5items = () => {
         let lastItem = {};
     
         const placeItem = (index) => {
@@ -65,10 +86,10 @@ const rearrangeData = (data) => {
         });
     };
 
-    filli4i5();
+    filli4i5items();
     fillOther();
 
     return rearranged;
 };
 
-export const xdata = rearrangeData(data);
+export const xdata = rearrangeData(dataWithColor);
