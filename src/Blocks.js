@@ -5,10 +5,10 @@ import { Box } from '@mui/material';
 // Attaching Tape block at the top of table 
 export const TapeBlock = () => {
   return (
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
     <Typography variant="h6" align="center" style={{ display: 'flex', 
     alignItems: 'center', 
-    justifyContent: 'center', 
-    marginLeft: '279.5px', 
+    justifyContent: 'center',  
     marginTop:'10px',
     height: '20px',
     width: `719px`, 
@@ -24,6 +24,7 @@ export const TapeBlock = () => {
     }}>
     TAPE-IN DB VIEW
     </Typography>
+    </div>
   );
 };
 // Attaching I0 block to the right of the table 
@@ -49,13 +50,13 @@ export const IOsBlock = () => {
 // Attaching MISC block at the bottom of table 
 export const MiscBlock = () => {
   return (
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '0' }}>
     <Box
       sx={{
         width: '628px', 
         height: '0', 
         padding: '0',
         textAlign: 'center',
-        marginLeft: '332px',
         borderLeft: '1px solid black',
         borderRight: '1px solid black',
         borderBottom: '1px solid black', 
@@ -63,5 +64,6 @@ export const MiscBlock = () => {
     >
       <Typography variant="h8">MISC Block</Typography>
     </Box>
+    </div>
   );
 };
